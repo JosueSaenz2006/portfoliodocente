@@ -1,0 +1,167 @@
+/* Cormorant Garamond/Lora son las fuentes por defecto (--fuente-titulos/--fuente-texto).
+ * Inter y Caveat solo las usa cambiarFuente() (Ju1, "moderna"/"manuscrita") — se cargan igual
+ * para que estén listas apenas el estudiante las pide, sin depender de qué encargo abrió antes. */
+
+
+:root {
+  --color-fondo: #fdfcfa;
+  --color-texto: #241f1a;
+  --color-acento: #b6752f;
+  --fuente-titulos: "Cormorant Garamond", Georgia, serif;
+  --fuente-texto: "Lora", Georgia, serif;
+  --espaciado: 16px;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: var(--espaciado);
+  background: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente-texto);
+  font-size: 16px;
+  line-height: 1.6;
+}
+h1, h2, h3 {
+  font-family: var(--fuente-titulos);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0 0 calc(var(--espaciado) * 0.5);
+}
+p { margin: 0 0 var(--espaciado); }
+a { color: var(--color-acento); }
+/* Una imagen nunca es más ancha que su sección: se achica con su proporción en vez de salirse. */
+img { max-width: 100%; height: auto; }
+
+.salto { height: var(--espaciado); }
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--espaciado);
+  padding-bottom: calc(var(--espaciado) * 0.75);
+  margin-bottom: var(--espaciado);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-texto) 12%, transparent);
+}
+.nav a { text-decoration: none; }
+
+.card {
+  padding: calc(var(--espaciado) * 1.25);
+  border: 1px solid color-mix(in srgb, var(--color-texto) 12%, transparent);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--color-fondo) 96%, var(--color-texto) 4%);
+}
+
+.badge-destacado {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-acento) 16%, transparent);
+  color: var(--color-acento);
+}
+
+/* Utilidades de layout (Ma2, §5.7): .grid para columnas, .fila para una línea flex. */
+.grid { display: grid; gap: var(--espaciado); }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.fila { display: flex; flex-wrap: wrap; gap: var(--espaciado); align-items: center; }
+
+/* Media query base (Mi2, §5.6): a los estudiantes se les entrega ya resuelta. */
+.tutorias-grid > * { min-width: 0; overflow-wrap: anywhere; }
+@media (max-width: 640px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .tutorias-grid { grid-template-columns: minmax(0, 1fr) !important; grid-template-rows: auto !important; }
+  .tutorias-grid > * { grid-column: 1 !important; grid-row: auto !important; }
+}
+
+/* Diseño adaptable: la página se ve bien en celular, tableta y computador. */
+img, video, iframe { max-width: 100%; height: auto; }
+html { -webkit-text-size-adjust: 100%; }
+@media (max-width: 900px) {
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Ajustes de tu página */
+body { margin: 0; padding: 0; } html, body { height: 100%; }
+
+/* Estilos propios de tu página */
+.estilo-1 {
+  display: grid;
+  grid-template-rows: auto auto auto auto minmax(auto, 1fr) auto;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0px;
+  min-height: 100vh;
+}
+
+.estilo-2 {
+  grid-area: 1 / 1 / span 1 / span 3;
+  background-color: rgb(45, 73, 54);
+}
+
+.estilo-3 {
+  color: rgb(43, 106, 79);
+  text-align: center;
+}
+
+.estilo-4 {
+  grid-area: 2 / 1 / span 1 / span 1;
+  background-color: rgb(170, 94, 17);
+}
+
+.estilo-5 {
+  grid-area: 2 / 2 / span 1 / span 2;
+  background-color: rgb(112, 73, 195);
+}
+
+.estilo-6 {
+  color: rgb(45, 69, 59);
+}
+
+.estilo-7 {
+  grid-area: 3 / 1 / span 1 / span 3;
+  background-color: rgb(218, 208, 148);
+}
+
+.estilo-8 {
+  color: rgb(223, 25, 193);
+}
+
+.estilo-9 {
+  font-family: Caveat, cursive;
+}
+
+.estilo-10 {
+  grid-area: 4 / 1 / span 1 / span 1;
+}
+
+.estilo-11 {
+  grid-area: 4 / 2 / span 1 / span 2;
+}
+
+.estilo-12 {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.estilo-13 {
+  grid-area: 5 / 1 / span 1 / span 3;
+  background-color: rgb(167, 216, 31);
+}
+
+.estilo-14 {
+  text-align: center;
+}
+
+.estilo-15 {
+  grid-area: 6 / 1 / span 1 / span 3;
+  background-color: rgb(43, 38, 32);
+}
+
+.estilo-16 {
+  color: rgb(43, 106, 79);
+}
